@@ -6,6 +6,5 @@ deploy:
   provider: openshift
   server: $OPENSHIFT_SERVER
   token: $OPENSHIFT_TOKEN
-  project: $OPENSHIFT_PROJECT
   app: contacts
   edge: true
