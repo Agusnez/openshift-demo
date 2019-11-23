@@ -4,7 +4,7 @@ node_js: "12"
 
 deploy:
   provider: openshift
-  server: $OPENSHIFT_SERVER
+  domain: $OPENSHIFT_SERVER
   token: $OPENSHIFT_TOKEN
   app: contacts
   edge: true
