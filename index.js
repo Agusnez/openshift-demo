@@ -5,6 +5,8 @@ var Datastore = require('nedb')
 
 var app = express();
 
+var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080;
+
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 
@@ -53,6 +55,6 @@ app.delete('/contact/:phone', function (req, res) {
   });
 });
 
-app.listen(8000, function () {
-  console.log('Example app listening on port 8000!');
+app.listen(8080, function () {
+  console.log('Example app listening on port 8080!');
 });
