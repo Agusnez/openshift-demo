@@ -6,6 +6,6 @@ deploy:
   password:
     secure: CGErQrhpSpcPnGuYpdUyYc3bnvL6xaxdlL7TIEk5RiwW3Hz/GqGkI2bHyBg87uAvSNq6hwlVvVtxuDY/Sv/qKo484m1vfvZSbSN/u3zidtBMEQj1DwJcec/yag81XL0QsT3FtyRR7zj1aPAx2c/NEd8zWBgnBK7aVCKVUPd3jBuU2zblxQtN0d2QWHYfehrcGlqB5QRQh0ChC0OQaW66N1qUaIPdxxlGiPXmKOqRcDjnb5J1hH/aKNBcBxTfLq9b5VAiJAVahn5PW8rjNDCi+q48JpUCkAKCGKq8q6Fq1olZV4LFUAfHFG4OaFkx2AWt850uUzxE9OgvacVaC1hzlOU6Ko9y65WP/Ue6V1/AxoTAtnVVasZRXNED61UpqH4oPLBrt4B0XnQaskL1QIoJKy3Ax+m0wHbuGGYknjtN00idTo+WAt+bH+8qv6P8WHfvbcqNlLGjjv+kfabpGEGeGLsuzqd/HgstsP8JdkD6XXJ+b3rEORGra2bPf93QxrcgEKGKAqnLB2ejUe2fa2EvO3WojxQ2T6FZ/AjjlrdHAqSGa8z49Gc95IqHheRPwbGcptyrrpgNhsSggySu4QKG9/hZPTswfLoJmJInVzJjVS3w3MvlWA/jPJKIK7G3ynUZC50vhq6He6CR28OsuHLEvAP5m1mw797VfQmImXwiBeg=
   app: contacts
-  domain: api.ca-central-1.starter.openshift-online.com
+  domain: api.ca-central-1.starter.openshift-online.com:6443/apis/user.openshift.io/v1/users/~
   on:
     repo: Agusnez/openshift-demo
