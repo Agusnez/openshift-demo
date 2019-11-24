@@ -2,9 +2,15 @@ language: node_js
 
 node_js: "12"
 
+services:
+  - docker
+
+install:
+  - export DOCKER_FULL_IMAGE_NAME=agusnez/contacts-api:$TRAVIS_COMMIT
+  - docker build -t $DOCKER_FULL_IMAGE_NAME .
+
 deploy:
-  provider: openshift
-  server: $OPENSHIFT_SERVER
-  token: $OPENSHIFT_TOKEN
-  app: contactos
-  edge: true
+  provider: script
+  script: bash scripts/docker_push
+  on:
+    branch: master
