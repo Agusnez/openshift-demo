@@ -6,8 +6,9 @@ services:
   - docker
 
 install:
-  - export DOCKER_FULL_IMAGE_NAME=agusnez/contacts-api:$TRAVIS_COMMIT
-  - docker build -t $DOCKER_FULL_IMAGE_NAME .
+  - export DOCKER_FULL_IMAGE_NAME=agusnez/contacts-api
+  - docker build -t $DOCKER_FULL_IMAGE_NAME:$TRAVIS_COMMIT .
+  - docker build -t $DOCKER_FULL_IMAGE_NAME:latest .
 
 deploy:
   provider: script
