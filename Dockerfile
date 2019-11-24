@@ -6,6 +6,7 @@ COPY package.json .
 COPY package-lock.json .
 COPY database.db .
 
+RUN chmod -R 0777 database.db
 RUN npm install
 
 COPY index.js .
