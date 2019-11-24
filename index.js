@@ -1,7 +1,9 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var Datastore = require('nedb')
-  , db = new Datastore({ filename: 'database.db', autoload: true });
+  , db = new Datastore({ filename: 'database.db' });
+
+db.loadDatabase();
 
 var app = express();
 
@@ -16,14 +18,6 @@ app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Methods", "OPTIONS, HEAD, GET, POST, DELETE");
   next();
 });
-
-var contacts = [
-  {
-    "id": 0,
-    "name": "Carlos",
-    "phone": "679237786"
-  }
-];
 
 app.get('/contacts', function (req, res) {
   db.find({}).projection({_id: 0, name:1,phone:1}).exec( function (err, docs) {
@@ -55,6 +49,6 @@ app.delete('/contact/:phone', function (req, res) {
   });
 });
 
-app.listen(8080, function () {
-  console.log('Example app listening on port 8080!');
+app.listen(port, function () {
+  console.log('Example app listening on port ' + port + '!');
 });
