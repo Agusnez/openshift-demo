@@ -1,0 +1,8 @@
+#!/bin/bash
+wget https://github.com/openshift/origin/releases/download/v1.5.1/openshift-origin-client-tools-v1.5.1-7b451fc-linux-64bit.tar.gz
+tar –xvf openshift-origin-client-tools-v1.5.1-7b451fc-linux-64bit.tar.gz
+mv openshift-origin-client-tools-v1.5.1-7b451fc-linux-64bit oc-tool
+cd oc-tool
+oc login --token=$OPENSHIFT_TOKEN --server=$OPENSHIFT_SERVER
+oc project demo
+oc import-image agusnez/contacts-api:latest

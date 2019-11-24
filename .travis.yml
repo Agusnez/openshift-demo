@@ -17,8 +17,7 @@ before_deploy:
 
 deploy:
   skip_cleanup: true
-  provider: openshift
-  server: $OPENSHIFT_SERVER
-  token: $OPENSHIFT_TOKEN
-  app: contacts-api
-  edge: true  
+  provider: script
+  script: bash scripts/image_pull
+  on:
+    branch: master
