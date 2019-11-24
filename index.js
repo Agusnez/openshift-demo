@@ -1,5 +1,6 @@
 var express = require('express');
 var bodyParser = require('body-parser');
+const path = require('path');
 var Datastore = require('nedb')
   , db = new Datastore();
 
@@ -11,12 +12,17 @@ var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080;
 
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
+app.use(express.static('build'));
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   res.header("Access-Control-Allow-Methods", "OPTIONS, HEAD, GET, POST, DELETE");
   next();
+});
+
+app.get('/', function (req, res) {
+  res.sendFile(path.resolve(__dirname, 'build/', 'index.html'));
 });
 
 app.get('/contacts', function (req, res) {
