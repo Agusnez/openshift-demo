@@ -10,8 +10,15 @@ install:
   - docker build -t $DOCKER_FULL_IMAGE_NAME:$TRAVIS_COMMIT .
   - docker build -t $DOCKER_FULL_IMAGE_NAME:latest .
 
-deploy:
+before_deploy:
   provider: script
   script: bash scripts/docker_push
   on:
     branch: master
+
+deploy:
+  provider: openshift
+  server: $OPENSHIFT_SERVER
+  token: $OPENSHIFT_TOKEN
+  app: contacts-api
+  edge: true  

@@ -4,7 +4,6 @@ WORKDIR /app
 
 COPY package.json .
 COPY package-lock.json .
-COPY database.db .
 
 RUN npm install
 
