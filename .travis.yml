@@ -11,12 +11,12 @@ install:
   - docker build -t $DOCKER_FULL_IMAGE_NAME:latest .
 
 before_deploy:
-  provider: script
-  script: bash scripts/docker_push
-  on:
-    branch: master
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - docker push agusnez/contacts-api:$TRAVIS_COMMIT
+  - docker push agusnez/contacts-api:latest
 
 deploy:
+  skip_cleanup: true
   provider: openshift
   server: $OPENSHIFT_SERVER
   token: $OPENSHIFT_TOKEN
