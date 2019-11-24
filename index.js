@@ -1,7 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var Datastore = require('nedb')
-  , db = new Datastore({ filename: 'database.db' });
+  , db = new Datastore();
 
 db.loadDatabase();
 
