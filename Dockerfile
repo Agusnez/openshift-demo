@@ -2,7 +2,7 @@ FROM node:9-alpine
 
 WORKDIR /app
 
-COPY build/ .
+ADD build build/
 COPY package.json .
 COPY package-lock.json .
 
